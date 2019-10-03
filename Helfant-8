@@ -1,0 +1,30 @@
+Timothy Helfant
+To do List
+
+First Someone in the group should be selected to be the 'leader' of the group.
+second everyone in the group needs to have assigned tasks for the to do.
+Third immplent the classes. 
+
+There would be a class for professor. This class will have attributes such as ID, Courses, Name, 
+There would be a class for Course. This class will have attributes like course number, instructor, TA.
+There would be a class for student. This class will have attributes like ID, Course number.
+There would be a class for asignment. This class will have attributes like Due_Date, Name, and Type.
+There would be a class for Admin. This class would have the attribute Admin_ID.
+There Would be a class for TA. This class would have the attributes TA_ID, Course_Number, 
+
+Fourth would be to implement the functions
+there would be a login function that is used by Admin, Professor, Student, and TA
+there would be a function for reading asignments for Student, Professor, and TA
+there would be a fuction for selecting and submitting file onto the submission system
+there would be a function that would allow students, professors, and TAs to make comments. 
+there would be a function that allows students to upload files.
+there would be a function that allows TAs and professors to view assignment submissions.
+there would be a function that allows TAs and professors to search for students in the course.
+there would be a function that allows TAs and professors to download student submissions.
+there would be a function that allows professors to create or delete assigments.
+there would be a function that allows professors to add or remove TAs.
+there would be a function that allows professors to add or remove students.
+there would be a function that allows professors to add or remove courses.
+there would be a function that allows admins to add or remove professors. 
+
+
