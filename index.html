@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	var repoNum = 0;
+	var dataDict = {};
+	$(document).ready(function(){
+		$.getJSON('http://augur.osshealth.io:5000/api/unstable/repo-groups/', function(data){
+				//var repoName = 'Name: ' + ${data} '';
+				if(data==null){
+					alert("error in api call");
+				}else{
+				
+
+
+				for (var i = 0; i < data.length; i++) {
+					$('#' + i).text(data[i].rg_name);
+					$.getJSON('http://augur.osshealth.io:5000/api/unstable/repo-groups/' + data[i].repo_group_id + '/top-committers', function(committers){
+
+
+					dataDict[committers[0].repo_group_name] = committers[0].commits;
+					});
+				}
+
+				var repoName = $('#selItem option:selected').text();
+				$('#numCommits').text(dataDict.repoName);
+				console.log(dataDict);
+				
+				
+}
+
+				// $('.selItem').change(function(){
+				// 	var id = $(this).children(":selected").attr("id");
+				// 	var repoID = data[id].repo_group_id
+				// 	$.getJSON('http://augur.osshealth.io:5000/api/unstable/repo-groups/' + repoID '/top-committers', function(committers){
+				// 		console.log(committers);
+
+				// });
+				// });
+				
+				// $(".selItem").change(function(){
+				// 	var id = $(this).children(":selected").attr("id")
+				// 	$("#numCommits").text(data[id].)
+				// });
+				// $("#query").click(function(){
+				// 	$('#').text()
+				// });
+				
+			});
+		});
+
+</script>
+
+
+
+</head>
+<body>
+<h1>Repo-list</h1>
+<p>Select the repo-list that you would like to see commits of</p>
+<form>
+	<select id='selItem'name="repoList">
+		<option class="repo_id" id="0" value="first">First</option>
+		<option class="repo_id" id="1" value="second">Second</option>
+		<option class="repo_id" id="2" value="third">Third</option>
+		<option class="repo_id" id="3" value="fourth">Fourth</option>
+		<option class="repo_id" id="4" value="Fifth">Fifth</option>
+	</select>
+	<br><br>
+	<!-- <input type="submit" id="query"> -->
+	<textarea rows="2" cols="10" id="numCommits"></textarea>
+	<br><br>
+	
+</form>
+
+
+</body>
+
+		
+
+	
+</html>
+
